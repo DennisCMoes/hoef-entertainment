@@ -4,13 +4,23 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-background: #1a0f23;
+  /* --color-background: #1a0f23;
   --color-primary: #6a0dad;
   --color-secondary: #8a2be2;
   --color-foreground: #e0d7ff;
   --color-hover: #9b30ff;
   --color-border: #2c1a3c;
-  --color-shadow: #2c1a3c;
+  --color-shadow: #2c1a3c; */
+
+  --color-primary: '#1E90FF';
+  --color-secondary: '#FF4500';
+  --color-background: '#0D0D0D';
+  --color-text-primary: '#FFFFFF';
+  --color-text-secondary: '#CCCCCC';
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 :root {
