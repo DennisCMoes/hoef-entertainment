@@ -3,6 +3,8 @@
 import HeroSection from '../../components/hero'
 import ProjectCard from './card'
 
+import { motion } from 'motion/react'
+
 export default function Projects() {
   return (
     <section className="min-h-screen px-4 text-white">
@@ -15,14 +17,14 @@ export default function Projects() {
         blurColor="bg-blue-800"
       />
 
-      <section
+      <motion.section
         id="projects-grid"
         className="mx-auto flex max-w-6xl flex-col gap-16 pt-24"
       >
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
-      </section>
+      </motion.section>
     </section>
   )
 }

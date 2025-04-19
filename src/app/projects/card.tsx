@@ -24,7 +24,7 @@ export default function ProjectCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
       viewport={{ once: true, amount: 0.6 }}
-      className="flex aspect-video flex-col space-y-6 rounded-2xl border border-white/10 bg-slate-900 p-8 shadow-xl md:flex-row gap-8"
+      className="flex aspect-video flex-col gap-8 space-y-6 rounded-2xl border border-white/10 bg-slate-900 p-8 shadow-xl md:flex-row z-20"
     >
       <div className="relative aspect-square overflow-hidden rounded-xl">
         <Image
