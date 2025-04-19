@@ -29,7 +29,7 @@ export default function ServiceBlock({
           <span className="text-zinc-500">[PLACEHOLDER]</span>
         </div>
         <div className="flex flex-col gap-4">
-          <h2 className="text-4xl font-semibold text-black">{title}</h2>
+          <h2 className="text-4xl font-semibold text-zinc-200">{title}</h2>
           <p className="text-lg text-zinc-400">{description}</p>
 
           <button className="bg-purple-500 mt-4 rounded-lg cursor-pointer px-6 py-3 font-medium text-white transition hover:bg-zinc-200">

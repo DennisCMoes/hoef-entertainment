@@ -1,44 +1,23 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { ChevronDown } from 'lucide-react'
+import HeroSection from '../components/hero'
+import cn from 'classnames'
 
 export default function About() {
   return (
-    <section className="bg-slate-950 text-white">
+    <section className="text-white">
       {/* Hero Section */}
-      <section className="relative flex min-h-screen items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-3xl"
-        >
-          <h1 className="mb-4 text-5xl font-bold">About us</h1>
-          <p className="text-lg text-slate-400">
-            We&apos;re a team of passionate creators, thinkers, and tech lovers
-            committed to innovation, quality, and meaningful human connection.
-          </p>
-        </motion.div>
-
-        {/* Animated Chevron */}
-        <motion.div
-          className='absolute bottom-40 lg:bottom-10 text-slate-600'
-          animate={{
-            y: [0, 10, 0] // Up and down
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-        >
-          <ChevronDown size={32} />
-        </motion.div>
-      </section>
+      <HeroSection
+        title="About us"
+        description={
+          "We're a team of passionate creators, thinkers, and tech lovers committed to innovation, quality, and meaningful human connection."
+        }
+        href="#mission"
+      />
 
       {/* Mission & Vision */}
-      <section className="px-6 min-h-[30vh]">
+      <section id="mission" className="min-h-[30vh] px-6">
         <div className="mx-auto grid max-w-6xl gap-16 md:grid-cols-2">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -76,6 +55,7 @@ export default function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
             className="mb-12 text-center text-4xl font-semibold"
           >
             Frequently Asked Questions
@@ -89,7 +69,10 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true, amount: 'all' }}
-                className="border-b border-slate-800 pb-6"
+                // className="border-b border-slate-800 pb-6"
+                className={cn('border-slate-800 pb-6', {
+                  'border-b': index < faqs.length - 1,
+                })}
               >
                 <h3 className="text-xl font-medium text-white">
                   {faq.question}

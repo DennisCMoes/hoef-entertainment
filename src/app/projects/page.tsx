@@ -7,6 +7,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import cn from 'classnames'
 import { ChevronDown } from 'lucide-react'
+import HeroSection from '../components/hero'
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -27,39 +28,17 @@ export default function Projects() {
   }, [activeIndex, isMobile])
 
   return (
-    <section className="min-h-screen bg-slate-950 px-4 text-white">
+    <section className="min-h-screen px-4 text-white">
       {/* Hero Section */}
-      <section className="flex min-h-screen items-center justify-center px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-3xl"
-        >
-          <h1 className="mb-4 text-5xl font-bold">Our Projects</h1>
-          <p className="text-lg text-slate-400">
-            Lorem ipsum eiusmod laborum consectetur sint dolor amet ad dolore
-            deserunt cupidatat cillum.
-          </p>
-        </motion.div>
+      <HeroSection
+        title="Our Projects"
+        description="Lorem ipsum eiusmod laborum consectetur sint dolor amet ad dolore
+            deserunt cupidatat cillum."
+        href='#projects-grid'
+        blurColor='bg-blue-800'
+      />
 
-        {/* Animated Chevron */}
-        <motion.div
-          className="absolute bottom-10 text-slate-600"
-          animate={{
-            y: [0, 10, 0], // Up and down
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        >
-          <ChevronDown size={32} />
-        </motion.div>
-      </section>
-
-      <section className="lg-grid-cols-3 mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2">
+      <section id='projects-grid' className="lg-grid-cols-3 mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2">
         {projects.map((project, index) => (
           <Link
             key={index}
