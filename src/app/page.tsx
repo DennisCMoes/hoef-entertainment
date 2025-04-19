@@ -15,7 +15,7 @@ export default function Home() {
           <h2 className="text-lg tracking-widest text-purple-400 uppercase md:text-xl">
             Hoef Entertainment
           </h2>
-          <h1 className="mt-2 text-4xl leading-tight font-bold md:text-6xl">
+          <h1 className="mt-2 text-4xl leading-tight font-bold md:text-6xl text-white">
             Premium Entertainment <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">
               Services
