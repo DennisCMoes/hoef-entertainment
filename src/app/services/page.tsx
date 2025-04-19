@@ -1,6 +1,6 @@
 'use client'
 
-import HeroSection from '../components/hero'
+import HeroSection from '../../components/hero'
 import GlowCard from './card'
 
 import { motion } from 'motion/react'

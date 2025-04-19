@@ -1,52 +1,91 @@
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-} from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
+'use client'
+
+import { Mail, Phone, MapPin } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
   return (
-    <div className="text-foreground flex w-4xl flex-col gap-4">
-      <Card className="bg-shadow text-foreground w-full">
-        <CardHeader>
-          <CardTitle className="text-4xl">Contact us</CardTitle>
-          <CardDescription>
-            Don&apos;t hesitate to reach out to use with questions.
-            <br />
-            Or tell us about your upcoming project
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex flex-col gap-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="grid items-center gap-1.5">
-              <Label htmlFor="name">Name</Label>
-              <Input type="text" id="name" placeholder="Name"></Input>
-            </div>
-            <div className="grid items-center gap-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input type="email" id="email" placeholder="E-mail"></Input>
-            </div>
+    <section className="flex min-h-screen items-center justify-center px-6 py-20 text-white">
+      <div className="mx-auto grid max-w-6xl items-start gap-20 md:grid-cols-2">
+        {/* Contact Info */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="mb-6 text-4xl font-semibold text-purple-400">
+            Get in Touch
+          </h2>
+          <p className="mb-8 max-w-md text-slate-400">
+            Whether you&apos;re looking to collaborate, need a custom quote, or just
+            want to ask a question — we&apos;re here to help.
+          </p>
+
+          <ul className="space-y-6 text-sm text-zinc-400">
+            <li className="flex items-center gap-4">
+              <Mail className="text-white" size={20} />
+              <a
+                href="mailto:info@hoefentertainment.com"
+                className="text-white hover:underline"
+              >
+                info@hoefentertainment.com
+              </a>
+            </li>
+            <li className="flex items-center gap-4">
+              <Phone className="text-white" size={20} />
+              <span className="text-white">+31 6 12345678</span>
+            </li>
+            <li className="flex items-center gap-4">
+              <MapPin className="text-white" size={20} />
+              <span className="text-white">Amsterdam, NL</span>
+            </li>
+          </ul>
+        </motion.div>
+
+        {/* Contact Form */}
+        <motion.form
+          initial={{ opacity: 0, x: 20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="space-y-6 rounded-2xl border border-white/10 bg-slate-900 p-8 shadow-xl"
+        >
+          <div>
+            <label className="mb-1 block text-sm text-zinc-300">Name</label>
+            <input
+              type="text"
+              placeholder="Your name"
+              className="w-full rounded-lg border border-white/10 bg-slate-800 px-4 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            />
           </div>
-          <div className="grid w-full items-center gap-1.5">
-            <Label htmlFor="subject">Subject</Label>
-            <Input type="text" id="subject" placeholder="Subject"></Input>
+
+          <div>
+            <label className="mb-1 block text-sm text-zinc-300">Email</label>
+            <input
+              type="email"
+              placeholder="you@example.com"
+              className="w-full rounded-lg border border-white/10 bg-slate-800 px-4 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            />
           </div>
-          <div className="grid w-full gap-1.5">
-            <Label htmlFor="message">Your message</Label>
-            <Textarea placeholder="Type your message here." id="message" rows={6} />
+
+          <div>
+            <label className="mb-1 block text-sm text-zinc-300">Message</label>
+            <textarea
+              rows={5}
+              placeholder="Type your message here..."
+              className="w-full rounded-lg border border-white/10 bg-slate-800 px-4 py-2 text-white focus:ring-2 focus:ring-purple-500 focus:outline-none"
+            ></textarea>
           </div>
-        </CardContent>
-        <CardFooter className='flex justify-end'>
-          <Button className='cursor-pointer'>Submit</Button>
-        </CardFooter>
-      </Card>
-    </div>
+
+          <button
+            type="submit"
+            className="w-full cursor-pointer rounded-lg bg-purple-500 px-6 py-2 font-semibold text-white transition hover:bg-purple-600"
+          >
+            Send Message
+          </button>
+        </motion.form>
+      </div>
+    </section>
   )
 }

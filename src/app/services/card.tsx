@@ -38,8 +38,8 @@ export default function GlowCard({
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true, amount: 'all' }}
       ref={cardRef}
-      className="glow-card aspect-video w-full p-4"
-      style={{ ['--clr' as any]: 'oklch(55.8% 0.288 302.321)' }}
+      className="glow-card md:aspect-video w-full border border-white/10 bg-slate-900 p-4 shadow-xl after:bg-slate-900"
+      style={{ ['--clr' as string]: 'oklch(55.8% 0.288 302.321)' }}
       onMouseMove={handleMouseMove}
     >
       <div className="glow-card-content text-white">

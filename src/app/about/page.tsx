@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import HeroSection from '../components/hero'
+import HeroSection from '../../components/hero'
 import cn from 'classnames'
 
 export default function About() {

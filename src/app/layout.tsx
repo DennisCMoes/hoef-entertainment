@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
-import Footer from './components/footer'
-import Header from './components/header'
+import Footer from '../components/footer'
+import Header from '../components/header'
 import cn from 'classnames'
 
 const montserrat = Montserrat({
@@ -22,16 +22,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        // className={`${montserrat.className} flex min-h-screen flex-col antialiased bg-red-200`}
         className={cn(
-          'flex min-h-screen flex-col antialiased',
-          montserrat.className
+          montserrat.className,
+          'flex min-h-screen flex-col bg-slate-950 antialiased'
         )}
       >
         <Header />
-        <main className="min-h-screen overflow-x-hidden bg-slate-950 pb-16">
-          {children}
-        </main>
+        <main className="min-h-screen overflow-x-hidden pb-16">{children}</main>
         <Footer />
       </body>
     </html>

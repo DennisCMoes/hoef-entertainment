@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'motion/react'
-import { ChevronDown, Mouse } from 'lucide-react'
+import { Mouse } from 'lucide-react'
 import cn from 'classnames'
 
 type Props = {
