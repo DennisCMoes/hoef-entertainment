@@ -1,33 +1,30 @@
-'use client'
-
-import { motion } from 'motion/react'
 import Image from 'next/image'
 
 export default function ProjectDetailPage() {
   return (
     <section className="bg-slate-950 text-white">
       {/* Fullscreen Hero */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
         className="relative h-screen w-full overflow-hidden"
-      >
-        <Image
-          src={'/projects/theater_hall.jpg'}
-          alt="Theater Hall"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute bottom-20 left-20 z-20 w-full">
-          <h1 className="mb-2 text-4xl font-bold">The Forgotten City</h1>
-          <p className="max-w-xl text-slate-300">
-            A short fantasy film enhanced with custom VFX and CGI environments,
-            telling the story of a traveler lost in time.
-          </p>
-        </div>
-      </motion.div>
+      > */}
+      <Image
+        src={'/projects/theater_hall.jpg'}
+        alt="Theater Hall"
+        fill
+        className="object-cover"
+        priority
+      />
+      <div className="absolute bottom-20 left-20 z-20 w-full">
+        <h1 className="mb-2 text-4xl font-bold">The Forgotten City</h1>
+        <p className="max-w-xl text-slate-300">
+          A short fantasy film enhanced with custom VFX and CGI environments,
+          telling the story of a traveler lost in time.
+        </p>
+      </div>
+      {/* </motion.div> */}
 
       {/* Sections */}
       <section className="mx-auto max-w-5xl space-y-10 py-16">
@@ -89,4 +86,11 @@ export default function ProjectDetailPage() {
       </section>
     </section>
   )
+}
+
+export async function generateStaticParams() {
+  return [
+    { slug: 'the-forgotten-city' },
+    { slug: 'another-project' }
+  ]
 }
