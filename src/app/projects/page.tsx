@@ -1,7 +1,7 @@
 import { createReader } from '@keystatic/core/reader'
 
-import keystaticConfig from '../../../../keystatic.config'
-import HeroSection from '../../../components/hero'
+import keystaticConfig from '../../../keystatic.config'
+import HeroSection from '../../components/hero'
 import Link from 'next/link'
 
 const reader = createReader(process.cwd(), keystaticConfig)

@@ -1,5 +1,5 @@
 // keystatic.config.ts
-import { config, fields, collection } from '@keystatic/core';
+import { config, fields, collection } from '@keystatic/core'
 
 export default config({
   storage: {
@@ -13,8 +13,31 @@ export default config({
       format: { contentField: 'content' },
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        draft: fields.checkbox({
+          label: 'Draft',
+          description:
+            'Set this post as draft to prevent it from being published',
+        }),
+        date: fields.date({
+          label: 'Event date',
+          description: 'The date of the event',
+        }),
+        coverImage: fields.image({
+          label: 'Cover Image',
+          directory: 'public/files/coverImages',
+          publicPath: '/files/coverImages',
+        }),
+        gallery: fields.array(
+          fields.file({
+            label: 'Content',
+            description: 'One of the images or videos to describe your project',
+            directory: 'public/files/resumes',
+            publicPath: '/files/resumes',
+          }),
+          { label: 'Gallery' }
+        ),
         content: fields.markdoc({ label: 'Content' }),
       },
     }),
   },
-});
+})

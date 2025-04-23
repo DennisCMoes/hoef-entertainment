@@ -8,7 +8,7 @@ export default function Header() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="absolute top-0 z-30 w-full border-b border-white/10 bg-transparent backdrop-blur-xl">
+    <header className="w-full border-b border-white/10 bg-transparent backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo or title */}
         <Link href="/" className="text-xl font-bold text-purple-400">

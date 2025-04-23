@@ -2,6 +2,8 @@ import KeystaticApp from './keystatic'
 
 export default function Layout() {
   return (
-    <KeystaticApp />
+    <div className='z-50'>
+      <KeystaticApp />
+    </div>
   )
 }
