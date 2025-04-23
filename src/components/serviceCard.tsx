@@ -12,7 +12,7 @@ type GlowCardProps = {
   description: string
 }
 
-export default function GlowCard({
+export default function ServiceGlowCard({
   index,
   icon,
   title,
@@ -36,9 +36,9 @@ export default function GlowCard({
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.2 }}
-      viewport={{ once: true, amount: 'all' }}
+      viewport={{ once: true, amount: 0.4 }}
       ref={cardRef}
-      className="glow-card md:aspect-video w-full border border-white/10 bg-slate-900 p-4 shadow-xl after:bg-slate-900"
+      className="glow-card w-1/3 aspect-square border border-white/10 bg-slate-900 p-4 shadow-xl after:bg-slate-900"
       style={{ ['--clr' as string]: 'oklch(55.8% 0.288 302.321)' }}
       onMouseMove={handleMouseMove}
     >

@@ -19,7 +19,7 @@ export default function Header() {
         <nav className="hidden md:flex gap-6 text-sm font-medium text-white">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/about">About us</NavLink>
-          <NavLink href="/services">Our services</NavLink>
+          {/* <NavLink href="/services">Our services</NavLink> */}
           <NavLink href="/projects">Projects</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </nav>

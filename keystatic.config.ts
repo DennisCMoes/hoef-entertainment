@@ -39,5 +39,46 @@ export default config({
         content: fields.markdoc({ label: 'Content' }),
       },
     }),
+    services: collection({
+      label: 'Services',
+      slugField: 'title',
+      path: 'src/content/services/*',
+      format: {},
+      schema: {
+        title: fields.slug({
+          name: { label: 'Title', validation: { isRequired: true } },
+        }),
+        icon: fields.text({
+          label: 'Icon',
+          description: 'The Lucide React icon name',
+          validation: { isRequired: true },
+        }),
+        description: fields.text({
+          label: 'Description',
+          multiline: true,
+          validation: { isRequired: true },
+        }),
+        order: fields.integer({
+          label: 'Order of appearance',
+          description: 'Lower numbers appear first',
+          validation: { isRequired: true, min: 1 },
+        }),
+      },
+    }),
+    showcase: collection({
+      label: 'Showcase',
+      slugField: 'title',
+      path: 'src/content/showcase/*',
+      schema: {
+        title: fields.slug({
+          name: { label: 'Title', validation: { isRequired: true } },
+        }),
+        image: fields.image({
+          label: 'Gallery image',
+          directory: 'public/files/gallery',
+          publicPath: '/files/gallery',
+        }),
+      },
+    }),
   },
 })
