@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function Footer() {
@@ -6,9 +7,17 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 py-12 md:grid-cols-3">
         {/* About */}
         <div>
-          <h3 className="mb-3 text-lg font-semibold text-purple-400">
+          {/* <h3 className="mb-3 text-lg font-semibold text-purple-400">
             Hoef Entertainment
-          </h3>
+          </h3> */}
+          <div className="relative h-24 w-40">
+            <Image
+              src="/logos/logo_purple.png"
+              alt="Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
           <p className="text-sm text-zinc-400">
             High-end animation and VFX services tailored to bring your vision to
             life.

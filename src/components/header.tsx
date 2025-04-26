@@ -14,34 +14,43 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold text-purple-400">
           Hoef Entertainment
         </Link>
+        {/* <Link href="/" className="relative h-12 w-32">
+          <Image src={'/logos/logo_purple.png'} alt="Logo" fill priority sizes='128px' className='object-contain'/>
+        </Link> */}
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium text-white">
+        <nav className="hidden gap-6 text-sm font-medium text-white md:flex">
           <NavLink href="/">Home</NavLink>
           <NavLink href="/about">About us</NavLink>
-          {/* <NavLink href="/services">Our services</NavLink> */}
           <NavLink href="/projects">Projects</NavLink>
           <NavLink href="/contact">Contact</NavLink>
         </nav>
 
         {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setOpen(!open)}
-        >
+        <button className="text-white md:hidden" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile nav */}
       {open && (
-        <nav className="md:hidden bg-slate-950/90 text-white px-6 pb-6 pt-2">
+        <nav className="bg-slate-950/90 px-6 pt-2 pb-6 text-white md:hidden">
           <div className="flex flex-col gap-4 text-base font-medium">
-            <NavLink href="/" onClick={() => setOpen(false)}>Home</NavLink>
-            <NavLink href="/about" onClick={() => setOpen(false)}>About us</NavLink>
-            <NavLink href="/services" onClick={() => setOpen(false)}>Our services</NavLink>
-            <NavLink href="/projects" onClick={() => setOpen(false)}>Projects</NavLink>
-            <NavLink href="/contact" onClick={() => setOpen(false)}>Contact</NavLink>
+            <NavLink href="/" onClick={() => setOpen(false)}>
+              Home
+            </NavLink>
+            <NavLink href="/about" onClick={() => setOpen(false)}>
+              About us
+            </NavLink>
+            <NavLink href="/services" onClick={() => setOpen(false)}>
+              Our services
+            </NavLink>
+            <NavLink href="/projects" onClick={() => setOpen(false)}>
+              Projects
+            </NavLink>
+            <NavLink href="/contact" onClick={() => setOpen(false)}>
+              Contact
+            </NavLink>
           </div>
         </nav>
       )}
