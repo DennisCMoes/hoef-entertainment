@@ -2,10 +2,9 @@ import Link from 'next/link'
 import keystaticConfig from '../../keystatic.config'
 
 import { createReader } from '@keystatic/core/reader'
-import TablerIcon, { IconName } from '@/components/tablerIcon'
-import ServiceGlowCard from '@/components/serviceCard'
-// import ImageGallery from '@/components/imageGallery'
+
 import MasonryGrid from '@/components/masonry'
+import AvailableServices from '@/components/services'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
@@ -14,7 +13,7 @@ export default async function Home() {
   // const gallery = await reader.collections.showcase.all()
 
   return (
-    <section className="flex flex-col gap-32">
+    <section className="flex flex-col gap-48">
       {/* Hero Banner */}
       <section className="relative flex min-h-screen items-center justify-center overflow-visible py-16 pt-24 md:py-0">
         {/* Floating background blobs */}
@@ -55,50 +54,10 @@ export default async function Home() {
       </section>
 
       {/* Gallery */}
-      {/* <ImageGallery gallery={gallery} /> */}
       <MasonryGrid />
 
       {/* Available Services */}
-      <section
-        id="services"
-        className="relative mx-auto max-w-6xl px-6 text-white"
-      >
-        <h2 className="mb-12 text-center text-4xl font-semibold">
-          Available services
-        </h2>
-
-        <div className="flex flex-row flex-wrap items-center justify-center gap-4">
-          {services
-            .sort((service) => service.entry.order)
-            .map((service, index) => (
-              <ServiceGlowCard
-                key={index}
-                title={service.entry.title}
-                index={index}
-                description={service.entry.description}
-                icon={
-                  <TablerIcon
-                    iconName={service.entry.icon as IconName}
-                    size={48}
-                    className="mb-4"
-                  />
-                }
-              />
-            ))}
-            <ServiceGlowCard
-                title={"TEST"}
-                index={1}
-                description={"Lorem ipsum aliquip, cillum ea occaecat reprehenderit, elit dolor nostrud ad aliquip dolore, excepteur magna."}
-                icon={
-                  <TablerIcon
-                    iconName={"Icon123"}
-                    size={48}
-                    className="mb-4"
-                  />
-                }
-              />
-        </div>
-      </section>
+      <AvailableServices services={services} />
     </section>
   )
 }

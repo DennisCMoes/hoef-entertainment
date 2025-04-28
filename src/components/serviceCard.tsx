@@ -38,14 +38,14 @@ export default function ServiceGlowCard({
       transition={{ duration: 0.6, delay: index * 0.2 }}
       viewport={{ once: true, amount: 0.4 }}
       ref={cardRef}
-      className="glow-card w-1/3 aspect-square border border-white/10 bg-slate-900 p-4 shadow-xl after:bg-slate-900"
-      style={{ ['--clr' as string]: 'oklch(55.8% 0.288 302.321)' }}
       onMouseMove={handleMouseMove}
+      className="glow-card flex flex-col items-center justify-center rounded-xl border border-white/10 bg-slate-900 p-8 shadow-xl transition hover:scale-[1.03] hover:border-white/20"
+      style={{ ['--clr' as string]: 'oklch(55.8% 0.288 302.321)' }}
     >
-      <div className="glow-card-content text-white">
+      <div className="glow-card-content flex flex-col items-center text-center">
         {icon}
-        <h2 className="mb-2 text-3xl font-medium text-white">{title}</h2>
-        <p className="text-lg text-slate-400">{description}</p>
+        <h3 className="mt-4 text-2xl font-bold text-white">{title}</h3>
+        <p className="mt-2 text-lg text-slate-400">{description}</p>
       </div>
     </motion.div>
   )

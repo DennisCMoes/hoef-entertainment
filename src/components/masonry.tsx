@@ -46,15 +46,25 @@ export default function MasonryGrid() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-12">
-      <h2 className="mb-8 text-center text-3xl font-bold text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.4 }}
+        viewport={{ once: true, amount: 0.6 }}
+        className="mb-8 text-center text-3xl font-bold text-white"
+      >
         Our Work
-      </h2>
+      </motion.h2>
 
       {/* Masonry Grid */}
-      <div className="columns-1 gap-4 space-y-4 sm:columns-2 md:columns-3">
+      <motion.div className="columns-1 gap-4 space-y-4 sm:columns-2 md:columns-3">
         {images.map((image, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, delay: 0.8 }}
+            viewport={{ once: true, amount: 0.6 }}
             className="cursor-pointer break-inside-avoid overflow-hidden rounded-lg"
             onClick={() => openLightbox(index)}
           >
@@ -65,9 +75,9 @@ export default function MasonryGrid() {
               height={800}
               className="h-auto w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
             />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Lightbox Overlay */}
       <AnimatePresence>
