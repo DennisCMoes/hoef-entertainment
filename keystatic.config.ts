@@ -13,6 +13,7 @@ export default config({
       slugField: 'title',
       path: 'src/content/posts/*',
       format: { contentField: 'content' },
+      entryLayout: 'content',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
         draft: fields.checkbox({
@@ -71,6 +72,21 @@ export default config({
           label: 'Image',
           directory: 'public/files/showcase',
           publicPath: '/files/showcase',
+        }),
+      },
+    }),
+    faq: collection({
+      label: 'FAQ',
+      slugField: 'question',
+      path: 'src/content/faq/*',
+      schema: {
+        question: fields.slug({
+          name: { label: 'Question', validation: { isRequired: true } },
+        }),
+        answer: fields.text({
+          label: 'Answer',
+          multiline: true,
+          validation: { isRequired: true },
         }),
       },
     }),

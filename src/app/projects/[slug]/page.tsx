@@ -4,7 +4,6 @@ import Markdoc from '@markdoc/markdoc'
 import { createReader } from '@keystatic/core/reader'
 import keystaticConfig from '../../../../keystatic.config'
 import Image from 'next/image'
-import MediaGallery from '@/components/mediaGallery'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
@@ -39,7 +38,6 @@ export default async function ProjectDetailPage({ params }: Props) {
         <h1>{post.title}</h1>
         <div>
           <h1>Gallery</h1>
-          <MediaGallery paths={post.gallery! as string[]} />
         </div>
         {Markdoc.renderers.react(renderable, React)}
       </div>
