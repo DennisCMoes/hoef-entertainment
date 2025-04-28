@@ -2,7 +2,7 @@ import Link from 'next/link'
 import keystaticConfig from '../../keystatic.config'
 
 import { createReader } from '@keystatic/core/reader'
-import LucideIcon, { IconName } from '@/components/lucideIcon'
+import TablerIcon, { IconName } from '@/components/tablerIcon'
 import ServiceGlowCard from '@/components/serviceCard'
 import ImageGallery from '@/components/imageGallery'
 
@@ -75,7 +75,7 @@ export default async function Home() {
                 index={index}
                 description={service.entry.description}
                 icon={
-                  <LucideIcon
+                  <TablerIcon
                     iconName={service.entry.icon as IconName}
                     size={48}
                     className="mb-4"
@@ -83,6 +83,18 @@ export default async function Home() {
                 }
               />
             ))}
+            <ServiceGlowCard
+                title={"TEST"}
+                index={1}
+                description={"Lorem ipsum aliquip, cillum ea occaecat reprehenderit, elit dolor nostrud ad aliquip dolore, excepteur magna."}
+                icon={
+                  <TablerIcon
+                    iconName={"Icon123"}
+                    size={48}
+                    className="mb-4"
+                  />
+                }
+              />
         </div>
       </section>
     </section>
