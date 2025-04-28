@@ -21,11 +21,13 @@ export default async function Projects() {
       />
 
       <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/projects/${post.slug}`}>{post.entry.title}</Link>
-          </li>
-        ))}
+        {posts
+          .filter((post) => !post.entry.draft)
+          .map((post) => (
+            <li key={post.slug}>
+              <Link href={`/projects/${post.slug}`}>{post.entry.title}</Link>
+            </li>
+          ))}
       </ul>
     </section>
   )

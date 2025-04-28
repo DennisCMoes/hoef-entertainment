@@ -9,6 +9,7 @@ export default config({
   collections: {
     posts: collection({
       label: 'Posts',
+      columns: ['title', 'draft'],
       slugField: 'title',
       path: 'src/content/posts/*',
       format: { contentField: 'content' },
@@ -28,15 +29,6 @@ export default config({
           directory: 'public/files/coverImages',
           publicPath: '/files/coverImages',
         }),
-        gallery: fields.array(
-          fields.file({
-            label: 'Content',
-            description: 'One of the images or videos to describe your project',
-            directory: 'public/files/resumes',
-            publicPath: '/files/resumes',
-          }),
-          { label: 'Gallery' }
-        ),
         content: fields.markdoc({ label: 'Content' }),
       },
     }),
@@ -70,14 +62,15 @@ export default config({
       label: 'Showcase',
       slugField: 'title',
       path: 'src/content/showcase/*',
+      format: {},
       schema: {
         title: fields.slug({
           name: { label: 'Title', validation: { isRequired: true } },
         }),
         image: fields.image({
-          label: 'Gallery image',
-          directory: 'public/files/gallery',
-          publicPath: '/files/gallery',
+          label: 'Image',
+          directory: 'public/files/showcase',
+          publicPath: '/files/showcase',
         }),
       },
     }),
