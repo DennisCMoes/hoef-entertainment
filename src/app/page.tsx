@@ -4,13 +4,14 @@ import keystaticConfig from '../../keystatic.config'
 import { createReader } from '@keystatic/core/reader'
 import TablerIcon, { IconName } from '@/components/tablerIcon'
 import ServiceGlowCard from '@/components/serviceCard'
-import ImageGallery from '@/components/imageGallery'
+// import ImageGallery from '@/components/imageGallery'
+import MasonryGrid from '@/components/masonry'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
 export default async function Home() {
   const services = (await reader.collections.services.all()).sort()
-  const gallery = await reader.collections.showcase.all()
+  // const gallery = await reader.collections.showcase.all()
 
   return (
     <section className="flex flex-col gap-32">
@@ -54,7 +55,8 @@ export default async function Home() {
       </section>
 
       {/* Gallery */}
-      <ImageGallery gallery={gallery} />
+      {/* <ImageGallery gallery={gallery} /> */}
+      <MasonryGrid />
 
       {/* Available Services */}
       <section
