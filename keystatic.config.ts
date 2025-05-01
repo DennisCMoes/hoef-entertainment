@@ -1,4 +1,3 @@
-// keystatic.config.ts
 import { config, fields, collection } from '@keystatic/core'
 
 export default config({
@@ -6,6 +5,7 @@ export default config({
     kind: 'github',
     repo: 'DennisCMoes/hoef-entertainment',
   },
+  // storage: { kind: 'local' },
   collections: {
     posts: collection({
       label: 'Posts',
@@ -16,6 +16,11 @@ export default config({
       entryLayout: 'content',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
+        excerpt: fields.text({
+          label: 'Excerpt',
+          multiline: true,
+          validation: { isRequired: true },
+        }),
         draft: fields.checkbox({
           label: 'Draft',
           description:
@@ -29,8 +34,9 @@ export default config({
           label: 'Cover Image',
           directory: 'public/files/coverImages',
           publicPath: '/files/coverImages',
+          validation: { isRequired: true },
         }),
-        content: fields.markdoc({ label: 'Content' }),
+        content: fields.mdx({ label: 'Content', extension: 'mdx' }),
       },
     }),
     services: collection({

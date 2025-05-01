@@ -2,7 +2,7 @@ import { createReader } from '@keystatic/core/reader'
 
 import keystaticConfig from '../../../keystatic.config'
 import HeroSection from '../../components/hero'
-import Link from 'next/link'
+import ProjectCard from './card'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
@@ -14,21 +14,24 @@ export default async function Projects() {
       {/* Hero Section */}
       <HeroSection
         title="Our Projects"
-        description="Lorem ipsum eiusmod laborum consectetur sint dolor amet ad dolore
-            deserunt cupidatat cillum."
-        href="#projects-grid"
-        blurColor="bg-blue-800"
+        description="A showcase of the ideas we've brought to life — from passion projects to collaborative builds. Discover what we're working on."
+        href="#projects-list"
+        blurColor="bg-pink-800"
       />
 
-      <ul>
+      <section id="projects-list" className="mx-auto flex max-w-2xl flex-row">
         {posts
           .filter((post) => !post.entry.draft)
           .map((post) => (
-            <li key={post.slug}>
-              <Link href={`/projects/${post.slug}`}>{post.entry.title}</Link>
-            </li>
+            <ProjectCard
+              key={post.slug}
+              slug={post.slug}
+              coverImage={post.entry.coverImage}
+              excerpt={post.entry.excerpt}
+              title={post.entry.title}
+            />
           ))}
-      </ul>
+      </section>
     </section>
   )
 }

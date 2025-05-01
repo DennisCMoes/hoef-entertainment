@@ -37,9 +37,6 @@ export default function Footer() {
               <FooterLink href="/about">About Us</FooterLink>
             </li>
             <li>
-              <FooterLink href="/services">Our Services</FooterLink>
-            </li>
-            <li>
               <FooterLink href="/projects">Projects</FooterLink>
             </li>
             <li>

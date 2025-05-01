@@ -73,6 +73,7 @@ export default function MasonryGrid() {
               alt={image.alt}
               width={600}
               height={800}
+              loading='lazy'
               className="h-auto w-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
             />
           </motion.div>
