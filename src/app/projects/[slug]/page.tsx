@@ -15,9 +15,9 @@ type Props = {
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params
   const post = await reader.collections.posts.read(slug)
+  console.log(post)
 
   if (!post) {
-    // return <div className="py-32 text-center text-white">No Post Found</div>
     notFound()
   }
 
