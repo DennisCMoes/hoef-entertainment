@@ -11,15 +11,15 @@ import { notFound } from 'next/navigation'
 const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
   console.log('cwd:', process.cwd())
-
-  const { slug } = params
+  const { slug } = await params
+  console.log('slug:', slug)
   const post = await reader.collections.posts.read(slug)
-  console.log(post)
+  console.log('post:', post)
 
   if (!post) {
     notFound()
@@ -41,8 +41,8 @@ export default async function ProjectDetailPage({ params }: Props) {
         </article>
 
         {/* Image Last, Responsive Container */}
-        <div className="relative w-fit mx-auto overflow-hidden rounded-2xl bg-slate-800 p-6">
-          <div className='rounded-lg overflow-hidden'>
+        <div className="relative mx-auto w-fit overflow-hidden rounded-2xl bg-slate-800 p-6">
+          <div className="overflow-hidden rounded-lg">
             <Image
               src={post.coverImage}
               alt={post.title}
