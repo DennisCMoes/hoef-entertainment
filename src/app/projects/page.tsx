@@ -19,7 +19,7 @@ export default async function Projects() {
         blurColor="bg-pink-800"
       />
 
-      <section id="projects-list" className="mx-auto flex max-w-2xl flex-row">
+      <section id="projects-list" className="mx-auto flex max-w-2xl flex-col gap-8">
         {posts
           .filter((post) => !post.entry.draft)
           .map((post) => (

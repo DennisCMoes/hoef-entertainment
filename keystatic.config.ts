@@ -9,7 +9,7 @@ export default config({
   collections: {
     posts: collection({
       label: 'Posts',
-      columns: ['title', 'draft'],
+      columns: ['title', 'draft', 'date'],
       slugField: 'title',
       path: 'src/content/posts/*',
       format: { contentField: 'content' },
