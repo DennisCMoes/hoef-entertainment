@@ -27,7 +27,7 @@ export default async function Projects() {
               key={post.slug}
               slug={post.slug}
               coverImage={post.entry.coverImage}
-              excerpt={post.entry.excerpt}
+              production={post.entry.production}
               title={post.entry.title}
             />
           ))}

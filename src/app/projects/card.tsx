@@ -8,14 +8,14 @@ import { useRef } from 'react'
 type ProjectProps = {
   slug: string
   title: string
-  excerpt: string
+  production: string
   coverImage: string
 }
 
 export default function ProjectCard({
   slug,
   title,
-  excerpt,
+  production,
   coverImage,
 }: ProjectProps) {
   const cardRef = useRef<HTMLDivElement | null>(null)
@@ -44,7 +44,7 @@ export default function ProjectCard({
       {/* Left: Text */}
       <div className="flex flex-col justify-center gap-4 text-white md:w-1/2 md:pr-6">
         <h2 className="text-2xl font-bold">{title}</h2>
-        <p className="line-clamp-2 text-sm text-slate-300">{excerpt}</p>
+        <p className="line-clamp-2 text-sm text-slate-300">{production}</p>
         <Link
           href={`/projects/${slug}`}
           className="inline-flex items-center gap-2 self-start rounded-xl bg-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-purple-500"

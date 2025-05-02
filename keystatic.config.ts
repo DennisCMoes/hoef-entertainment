@@ -16,9 +16,9 @@ export default config({
       entryLayout: 'content',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
-        excerpt: fields.text({
-          label: 'Excerpt',
-          multiline: true,
+        production: fields.text({
+          label: 'Production',
+          multiline: false,
           validation: { isRequired: true },
         }),
         draft: fields.checkbox({
