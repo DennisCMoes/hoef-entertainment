@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import React from 'react'
 
 import { createReader } from '@keystatic/core/reader'
@@ -9,11 +11,13 @@ import { notFound } from 'next/navigation'
 const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  const { slug } = await params
+  console.log('cwd:', process.cwd())
+
+  const { slug } = params
   const post = await reader.collections.posts.read(slug)
   console.log(post)
 
