@@ -4,6 +4,7 @@ import { createReader } from '@keystatic/core/reader'
 import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
 import keystaticConfig from '../../../../keystatic.config'
 import Image from 'next/image'
+import { notFound } from 'next/navigation'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
@@ -16,7 +17,8 @@ export default async function ProjectDetailPage({ params }: Props) {
   const post = await reader.collections.posts.read(slug)
 
   if (!post) {
-    return <div className="py-32 text-center text-white">No Post Found</div>
+    // return <div className="py-32 text-center text-white">No Post Found</div>
+    notFound()
   }
 
   const content = await post.content()
