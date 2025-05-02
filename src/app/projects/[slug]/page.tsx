@@ -16,32 +16,38 @@ export default async function ProjectDetailPage({ params }: Props) {
   const post = await reader.collections.posts.read(slug)
 
   if (!post) {
-    return <div>No Post Found</div>
+    return <div className="py-32 text-center text-white">No Post Found</div>
   }
 
   const content = await post.content()
 
   return (
     <section className="bg-slate-950 py-32 text-white">
-      <div className="mx-auto max-w-6xl px-4">
-        {/* Cover Image */}
-        <div className="relative mb-12 flex items-center justify-center overflow-hidden rounded-2xl bg-black">
-          <div className="relative h-[500px] w-full max-w-5xl">
+      <div className="mx-auto max-w-3xl px-4">
+        {/* Title */}
+        <h1 className="mb-6 text-4xl font-extrabold tracking-tight md:text-5xl">
+          {post.title}
+        </h1>
+
+        {/* Content */}
+        <article className="prose prose-invert mb-12 max-w-none">
+          <MDXRemote source={content} components={components} />
+        </article>
+
+        {/* Image Last, Responsive Container */}
+        <div className="relative w-fit mx-auto overflow-hidden rounded-2xl bg-slate-800 p-6">
+          <div className='rounded-lg overflow-hidden'>
             <Image
               src={post.coverImage}
               alt={post.title}
-              fill
-              className="object-contain object-center"
+              width={0}
+              height={0}
+              sizes="100vw"
+              className="h-auto max-h-[100vh] w-full rounded-xl object-contain"
               priority
             />
-            {/* dark overlay for style */}
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
           </div>
         </div>
-
-        <article className="prose prose-invert max-w-none">
-          <MDXRemote source={content} components={components} />
-        </article>
       </div>
     </section>
   )
