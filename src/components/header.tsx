@@ -1,6 +1,9 @@
 'use client'
 
 import Link from 'next/link'
+import cn from 'classnames'
+
+import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 
@@ -67,11 +70,17 @@ function NavLink({
   children: React.ReactNode
   onClick?: () => void
 }) {
+  const pathname = usePathname()
+  const isActive = pathname === href
+
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="relative transition duration-200 hover:text-purple-400"
+      // className="relative transition duration-200 hover:text-purple-400"
+      className={cn('relative transition duration-200 hover:text-purple-300', {
+        'text-purple-500 font-semibold': isActive,
+      })}
     >
       <span className="relative z-10">{children}</span>
       <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-purple-400 transition-all duration-300 hover:w-full" />

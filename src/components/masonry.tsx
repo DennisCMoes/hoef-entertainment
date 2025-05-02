@@ -45,7 +45,7 @@ export default function MasonryGrid() {
   }, [handleNext, handlePrev, selectedIndex])
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-12">
+    <section id='work-showcase' className="mx-auto max-w-7xl px-6 py-12">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}
