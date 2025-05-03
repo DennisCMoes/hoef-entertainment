@@ -1,12 +1,12 @@
 export const dynamic = 'force-dynamic'
 
-import React from 'react'
 import keystaticConfig from '../../../../keystatic.config'
+import React from 'react'
 import Image from 'next/image'
 
-import { createReader } from '@keystatic/core/reader'
 import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
-import { notFound } from 'next/navigation'
+import { createReader } from '@keystatic/core/reader'
+// import { notFound } from 'next/navigation'
 
 const reader = createReader(process.cwd(), keystaticConfig)
 
@@ -29,7 +29,8 @@ export default async function ProjectDetailPage({ params }: Props) {
   console.log('post:', post)
 
   if (!post) {
-    notFound()
+    // notFound()
+    return <p className='text-white'>NOTHING FOUND!!</p>
   }
 
   const content = await post.content()
