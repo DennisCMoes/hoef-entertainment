@@ -5,7 +5,6 @@ export default config({
     kind: 'github',
     repo: 'DennisCMoes/hoef-entertainment',
   },
-  // storage: { kind: 'local' },
   collections: {
     posts: collection({
       label: 'Posts',

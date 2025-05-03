@@ -77,7 +77,6 @@ function NavLink({
     <Link
       href={href}
       onClick={onClick}
-      // className="relative transition duration-200 hover:text-purple-400"
       className={cn('relative transition duration-200 hover:text-purple-300', {
         'text-purple-500 font-semibold': isActive,
       })}
