@@ -1,14 +1,21 @@
 export const dynamic = 'force-dynamic'
 
 import React from 'react'
+import keystaticConfig from '../../../../keystatic.config'
+import Image from 'next/image'
+import path from 'path'
+import { promises as fs } from 'fs'
 
 import { createReader } from '@keystatic/core/reader'
 import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
-import keystaticConfig from '../../../../keystatic.config'
-import Image from 'next/image'
 import { notFound } from 'next/navigation'
+import { fileURLToPath } from 'url'
 
-const reader = createReader(process.cwd(), keystaticConfig)
+console.log('Checking files:')
+console.log(fs.readdir(path.join(process.cwd(), 'content/posts')))
+
+const __dirname__ = path.dirname(fileURLToPath(import.meta.url))
+const reader = createReader(__dirname__, keystaticConfig)
 
 type Props = {
   params: Promise<{ slug: string }>
