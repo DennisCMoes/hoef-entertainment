@@ -25,7 +25,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   )
   console.log('Incoming slug:', slug)
 
-  const post = await reader.collections.posts.read('demoniac')
+  const post = await reader.collections.posts.read(slug)
   console.log('post:', post)
 
   if (!post) {

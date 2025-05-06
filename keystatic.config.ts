@@ -8,10 +8,10 @@ export default config({
   collections: {
     posts: collection({
       label: 'Posts',
-      columns: ['title', 'draft', 'date'],
+      columns: ['title', 'date'],
       slugField: 'title',
       path: 'src/content/posts/*',
-      format: { contentField: 'content' },
+      format: { contentField: 'content', data: 'yaml' },
       entryLayout: 'content',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -19,11 +19,6 @@ export default config({
           label: 'Production',
           multiline: false,
           validation: { isRequired: true },
-        }),
-        draft: fields.checkbox({
-          label: 'Draft',
-          description:
-            'Set this post as draft to prevent it from being published',
         }),
         date: fields.date({
           label: 'Event date',
