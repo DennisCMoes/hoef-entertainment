@@ -1,11 +1,11 @@
 export const dynamic = 'force-dynamic'
 
-import { promises as fs } from 'fs'
 import keystaticConfig from '../../../../keystatic.config'
 import React from 'react'
 import Image from 'next/image'
+import Markdoc from "@markdoc/markdoc";
 
-import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
+import { MDXComponents } from 'next-mdx-remote-client/rsc'
 import { createReader } from '@keystatic/core/reader'
 import { notFound } from 'next/navigation'
 
@@ -15,32 +15,23 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
-export async function generateStaticParams() {
-  const reader = createReader(process.cwd(), keystaticConfig)
-  const posts = await reader.collections.posts.all()
-  return posts.map((post) => ({ slug: post.slug }))
-}
-
 export default async function ProjectDetailPage({ params }: Props) {
-  console.log('Files in /var/task/src/content/posts', await fs.readdir('/var/task'))
-  console.log('cwd:', process.cwd())
   const { slug } = await params
-  console.log('slug:', slug)
-  const allPosts = await reader.collections.posts.all()
-  console.log(
-    'All available posts:',
-    allPosts.map((p) => p.slug)
-  )
-  console.log('Incoming slug:', slug)
-
   const post = await reader.collections.posts.read(slug)
-  console.log('post:', post)
 
   if (!post) {
     notFound()
   }
 
-  const content = await post.content()
+  const { node } = await post.content()
+  const errors = Markdoc.validate(node)
+
+  if (errors.length) {
+    console.error(errors)
+    throw new Error('Invalid content')
+  }
+
+  const renderable = Markdoc.transform(node)
 
   return (
     <section className="bg-slate-950 py-32 text-white">
@@ -52,7 +43,8 @@ export default async function ProjectDetailPage({ params }: Props) {
 
         {/* Content */}
         <article className="prose prose-invert mb-12 max-w-none">
-          <MDXRemote source={content} components={components} />
+          {/* <MDXRemote source={content} components={components} /> */}
+          {Markdoc.renderers.react(renderable, React)}
         </article>
 
         {/* Image Last, Responsive Container */}
@@ -74,6 +66,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const components: MDXComponents = {
   h1: ({ children }) => (
     <h1 className="mt-12 mb-8 text-4xl leading-tight font-extrabold tracking-tight md:text-5xl">

@@ -11,7 +11,7 @@ export default config({
       columns: ['title', 'date'],
       slugField: 'title',
       path: 'src/content/posts/*',
-      format: { contentField: 'content', data: 'yaml' },
+      format: { contentField: 'content' },
       entryLayout: 'content',
       schema: {
         title: fields.slug({ name: { label: 'Title' } }),
@@ -30,7 +30,7 @@ export default config({
           publicPath: '/files/coverImages',
           validation: { isRequired: true },
         }),
-        content: fields.mdx({ label: 'Content', extension: 'mdx' }),
+        content: fields.markdoc({ label: 'Content' }),
       },
     }),
     services: collection({
