@@ -22,7 +22,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  console.log('Files in /var/task/src/content/posts', await fs.readdir('/var/task'), await fs.readdir('/var/task/src'), await fs.readdir('/var/task/src/content'), await fs.readdir('/var/task/src/content/posts'))
+  console.log('Files in /var/task/src/content/posts', await fs.readdir('/var/task'))
   console.log('cwd:', process.cwd())
   const { slug } = await params
   console.log('slug:', slug)
