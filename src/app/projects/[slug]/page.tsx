@@ -9,7 +9,6 @@ import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
 import { createReader } from '@keystatic/core/reader'
 import { notFound } from 'next/navigation'
 
-console.log('Files in /var/task/src/content/posts', fs.readdir('/var/task'))
 const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
@@ -23,6 +22,7 @@ export async function generateStaticParams() {
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
+  console.log('Files in /var/task/src/content/posts', await fs.readdir('/var/task'), await fs.readdir('/var/task/src'), await fs.readdir('/var/task/src/content'), await fs.readdir('/var/task/src/content/posts'))
   console.log('cwd:', process.cwd())
   const { slug } = await params
   console.log('slug:', slug)
