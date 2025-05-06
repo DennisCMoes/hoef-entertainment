@@ -1,7 +1,7 @@
 import keystaticConfig from '../../../../keystatic.config'
 import React from 'react'
 import Image from 'next/image'
-import Markdoc from "@markdoc/markdoc";
+import Markdoc from '@markdoc/markdoc'
 
 import { MDXComponents } from 'next-mdx-remote-client/rsc'
 import { createReader } from '@keystatic/core/reader'
@@ -11,6 +11,11 @@ const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  const slugs = await reader.collections.posts.list()
+  return slugs.map((slug) => ({ slug: slug.split('/') }))
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
