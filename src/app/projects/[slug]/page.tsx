@@ -1,13 +1,15 @@
 export const dynamic = 'force-dynamic'
 
+import { promises as fs } from 'fs'
 import keystaticConfig from '../../../../keystatic.config'
 import React from 'react'
 import Image from 'next/image'
 
 import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
 import { createReader } from '@keystatic/core/reader'
-// import { notFound } from 'next/navigation'
+import { notFound } from 'next/navigation'
 
+console.log('Files in /var/task/src/content/posts', fs.readdir('/var/task/src/content/posts'))
 const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
@@ -35,8 +37,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   console.log('post:', post)
 
   if (!post) {
-    // notFound()
-    return <p className="text-white">NOTHING FOUND!!</p>
+    notFound()
   }
 
   const content = await post.content()
