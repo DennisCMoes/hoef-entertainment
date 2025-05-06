@@ -9,7 +9,7 @@ import { MDXComponents, MDXRemote } from 'next-mdx-remote-client/rsc'
 import { createReader } from '@keystatic/core/reader'
 import { notFound } from 'next/navigation'
 
-console.log('Files in /var/task/src/content/posts', fs.readdir('/var/task/src/content/posts'))
+console.log('Files in /var/task/src/content/posts', fs.readdir('/var/task'))
 const reader = createReader(process.cwd(), keystaticConfig)
 
 type Props = {
