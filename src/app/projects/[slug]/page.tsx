@@ -14,6 +14,12 @@ type Props = {
   params: Promise<{ slug: string }>
 }
 
+export async function generateStaticParams() {
+  const reader = createReader(process.cwd(), keystaticConfig)
+  const posts = await reader.collections.posts.all()
+  return posts.map((post) => ({ slug: post.slug }))
+}
+
 export default async function ProjectDetailPage({ params }: Props) {
   console.log('cwd:', process.cwd())
   const { slug } = await params
@@ -30,7 +36,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
   if (!post) {
     // notFound()
-    return <p className='text-white'>NOTHING FOUND!!</p>
+    return <p className="text-white">NOTHING FOUND!!</p>
   }
 
   const content = await post.content()
