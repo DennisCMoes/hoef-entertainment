@@ -21,7 +21,6 @@ export default async function Projects() {
 
       <section id="projects-list" className="mx-auto flex max-w-2xl flex-col gap-8">
         {posts
-          .filter((post) => !post.entry.draft)
           .map((post) => (
             <ProjectCard
               key={post.slug}
