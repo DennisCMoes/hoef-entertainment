@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { motion } from 'motion/react'
 import { IconChevronDown } from '@tabler/icons-react'
+import Image from 'next/image'
 
 export default function HomeHeroSection() {
   return (
@@ -76,8 +77,14 @@ export default function HomeHeroSection() {
           transition={{ duration: 0.7, delay: 1.1 }}
           className="relative mt-12 h-[400px] w-full md:mt-0"
         >
-          <div className="flex h-full w-full items-center justify-center rounded-xl bg-zinc-700/40 shadow-lg ring-1 ring-zinc-600/40">
-            <span className="text-zinc-400">[Visual Placeholder]</span>
+          <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-xl bg-zinc-700/40 shadow-lg ring-1 ring-zinc-600/40">
+            <Image
+              src={'/home-page-banner.jpg'}
+              alt={'Home page banner'}
+              className='object-cover'
+              fill
+              priority
+            />
           </div>
         </motion.div>
       </motion.div>
@@ -86,7 +93,7 @@ export default function HomeHeroSection() {
         initial={{ opacity: 0, y: 75 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.6, ease: 'easeOut' }}
-        href='#work-showcase'
+        href="#work-showcase"
       >
         <motion.div
           animate={{

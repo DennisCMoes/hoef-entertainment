@@ -16,7 +16,7 @@ export default async function About() {
       <HeroSection
         title="About us"
         description={
-          "We're a team of passionate creators, thinkers, and tech lovers committed to innovation, quality, and meaningful human connection."
+          "At Hoef Entertainment, we bring stories to life through cutting-edge visual effects and animation."
         }
         href="#mission"
       />

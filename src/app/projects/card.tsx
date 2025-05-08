@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import moment from 'moment'
 
 import { motion } from 'framer-motion'
 import { useRef } from 'react'
@@ -8,6 +9,7 @@ import { useRef } from 'react'
 type ProjectProps = {
   slug: string
   title: string
+  date: string
   production: string
   coverImage: string
 }
@@ -16,6 +18,7 @@ export default function ProjectCard({
   slug,
   title,
   production,
+  date,
   coverImage,
 }: ProjectProps) {
   const cardRef = useRef<HTMLDivElement | null>(null)
@@ -46,6 +49,7 @@ export default function ProjectCard({
         <div className="flex flex-col justify-center gap-4 text-white md:w-1/2 md:pr-6">
           <h2 className="text-2xl font-bold">{title}</h2>
           <p className="line-clamp-2 text-sm text-slate-300">{production}</p>
+          <p className="line-clamp-2 text-sm text-slate-300">{moment(new Date(date)).format("yyyy")}</p>
           <div
             className="inline-flex items-center gap-2 self-start rounded-xl bg-purple-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-purple-500"
           >

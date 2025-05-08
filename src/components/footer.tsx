@@ -61,7 +61,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              Phone: <span className="text-white">+31 6 12345678</span>
+              Phone: <span className="text-white">+31 6 19405012</span>
             </li>
             <li>
               Location: <span className="text-white">Amsterdam, NL</span>

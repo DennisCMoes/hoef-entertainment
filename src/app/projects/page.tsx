@@ -14,17 +14,26 @@ export default async function Projects() {
       {/* Hero Section */}
       <HeroSection
         title="Our Projects"
-        description="A showcase of the ideas we've brought to life — from passion projects to collaborative builds. Discover what we're working on."
+        description="A showcase of the ideas we've brought to life — from passion projects to studio production. Discover what we're working on."
         href="#projects-list"
         blurColor="bg-pink-800"
       />
 
-      <section id="projects-list" className="mx-auto flex max-w-2xl flex-col gap-8">
+      <section
+        id="projects-list"
+        className="mx-auto flex max-w-2xl flex-col gap-8"
+      >
         {posts
+          .sort(
+            (a, b) =>
+              new Date(b.entry.date!).valueOf() -
+              new Date(a.entry.date!).valueOf()
+          )
           .map((post) => (
             <ProjectCard
               key={post.slug}
               slug={post.slug}
+              date={post.entry.date!}
               coverImage={post.entry.coverImage}
               production={post.entry.production}
               title={post.entry.title}

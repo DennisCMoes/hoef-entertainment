@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import cn from 'classnames'
 
 import { usePathname } from 'next/navigation'
@@ -14,12 +15,19 @@ export default function Header() {
     <header className="w-full border-b border-white/10 bg-transparent backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo or title */}
-        <Link href="/" className="text-xl font-bold text-purple-400">
+        {/* <Link href="/" className="text-xl font-bold text-purple-400">
           Hoef Entertainment
-        </Link>
-        {/* <Link href="/" className="relative h-12 w-32">
-          <Image src={'/logos/logo_purple.png'} alt="Logo" fill priority sizes='128px' className='object-contain'/>
         </Link> */}
+        <Link href="/" className="relative h-12 w-32">
+          <Image
+            src={'/logos/logo_purple.png'}
+            alt="Logo"
+            fill
+            priority
+            sizes="128px"
+            className="object-cover"
+          />
+        </Link>
 
         {/* Desktop nav */}
         <nav className="hidden gap-6 text-sm font-medium text-white md:flex">
@@ -78,7 +86,7 @@ function NavLink({
       href={href}
       onClick={onClick}
       className={cn('relative transition duration-200 hover:text-purple-300', {
-        'text-purple-500 font-semibold': isActive,
+        'font-semibold text-purple-500': isActive,
       })}
     >
       <span className="relative z-10">{children}</span>
