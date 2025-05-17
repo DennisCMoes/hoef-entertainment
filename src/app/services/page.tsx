@@ -6,6 +6,36 @@ import GlowCard from '../../components/serviceCard'
 import { motion } from 'motion/react'
 import { ReactNode } from 'react'
 import { Film, Box, Sparkles } from 'lucide-react'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Our Services | Hoef Entertainment',
+  description:
+    'Discover the full range of VFX services offered by Hoef Entertainment, including 3D animation, modeling, and high-end cinematic effects tailored to film, TV, and digital media.',
+  openGraph: {
+    title: 'Our Services | Hoef Entertainment',
+    description:
+      "Explore Hoef Entertainment's offerings in 3D animation, modeling, and photorealistic VFX. Elevate your production with world-class visual effects.",
+    url: 'https://hoef-entertainment.com/services',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Hoef Entertainment VFX Reel',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    title: 'Our Services | Hoef Entertainment',
+    description:
+      '3D animation, modeling, and cinematic VFX tailored for film, TV, and online content. Provided by Hoef Entertainment, a top VFX studio in Amsterdam.',
+    card: 'summary_large_image',
+    images: ['/og-image.jpg'],
+  },
+}
 
 export default function Services() {
   return (

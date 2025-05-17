@@ -3,7 +3,20 @@
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { motion } from 'framer-motion'
 
+
+
 export default function Contact() {
+  const sendEmail = async () => {
+    await fetch('/api/send-email', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: 'dennismoes@me.com',
+        name: 'Dennis',
+        message: 'Hello',
+      }),
+    })
+  }
+
   return (
     <section className="flex min-h-screen items-center justify-center px-6 py-20 text-white">
       <div className="mx-auto grid max-w-6xl items-start gap-20 md:grid-cols-2">
@@ -18,8 +31,8 @@ export default function Contact() {
             Get in Touch
           </h2>
           <p className="mb-8 max-w-md text-slate-400">
-            Whether you&apos;re looking to collaborate, need a custom quote, or just
-            want to ask a question — we&apos;re here to help.
+            Whether you&apos;re looking to collaborate, need a custom quote, or
+            just want to ask a question — we&apos;re here to help.
           </p>
 
           <ul className="space-y-6 text-sm text-zinc-400">
@@ -79,8 +92,9 @@ export default function Contact() {
           </div>
 
           <button
-            type="submit"
+            type="button"
             className="w-full cursor-pointer rounded-lg bg-purple-500 px-6 py-2 font-semibold text-white transition hover:bg-purple-600"
+            onClick={sendEmail}
           >
             Send Message
           </button>
