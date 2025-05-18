@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import './globals.css'
@@ -70,6 +71,7 @@ export default function RootLayout({
         <Header />
         <main className="min-h-screen overflow-x-hidden pb-16">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
