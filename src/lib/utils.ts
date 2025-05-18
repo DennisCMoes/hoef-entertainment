@@ -21,7 +21,7 @@ export async function sendEmail({ to, subject, html }: EmailProps) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'Test <no-reply@test.com>',
+      from: 'Hoef Entertainment email <info@email.hoef-entertainment.com>',
       to,
       subject,
       html,

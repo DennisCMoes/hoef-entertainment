@@ -11,8 +11,8 @@ export async function POST(req: Request) {
 
   try {
     await sendEmail({
-      to: email,
-      subject: `Message from ${name}`,
+      to: 'info@hoefentertainment.com',
+      subject: `Message from ${name} - ${email}`,
       html: `<p>${message}</p>`,
     })
 
